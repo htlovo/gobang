@@ -1,0 +1,51 @@
+/*首行信息*/
+p{
+	margin:0;
+}
+#control{
+	width:750px;
+	margin: 0 auto;
+	text-align: center;
+	font-size: 20px;
+}
+#control:after{
+	content: "";
+	display:table;
+	clear: both;
+} 
+#player{
+	color: #00f;
+	font-size: 30px;
+}
+#tip{
+	font-size: 40px;
+}
+#start{
+	font-size: 20px;
+}
+#start:hover{
+	cursor: pointer;
+}
+/*棋盘*/
+#board{
+	margin: 0 auto;
+	background-color: #afa;
+	background-image: repeating-linear-gradient(#000 0px, #000 2px, transparent 2px, transparent 50px), 
+	repeating-linear-gradient(90deg,#000 0px, #000 2px, transparent 2px, transparent 50px);
+	background-size: 702px 702px,702px 702px;
+	background-repeat: no-repeat;
+	background-position: left 24px top 24px;
+	width:750px;
+	height:750px;
+}
+#board>div{
+	width: 50px;
+	height: 50px;
+	float: left;
+}
+#sq119{
+	background: radial-gradient(#000 15%, transparent 0);
+}
+#sq51,#sq59,#sq179,#sq187{
+	background: radial-gradient(#000 12%, transparent 0);
+}
