@@ -1,3 +1,10 @@
+body{
+	-webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
+    cursor: default;
+}
 /*首行信息*/
 p{
 	margin:0;
@@ -23,13 +30,13 @@ p{
 #start{
 	font-size: 20px;
 }
-#start:hover{
+#start,#retract{
 	cursor: pointer;
+	border:groove 3px;
 }
-/*棋盘*/
 #board{
 	margin: 0 auto;
-	background-color: #afa;
+	background-color: #dc3;
 	background-image: repeating-linear-gradient(#000 0px, #000 2px, transparent 2px, transparent 50px), 
 	repeating-linear-gradient(90deg,#000 0px, #000 2px, transparent 2px, transparent 50px);
 	background-size: 702px 702px,702px 702px;
@@ -43,9 +50,57 @@ p{
 	height: 50px;
 	float: left;
 }
-#sq119{
+
+.yuan{
 	background: radial-gradient(#000 15%, transparent 0);
 }
-#sq51,#sq59,#sq179,#sq187{
+.star{
 	background: radial-gradient(#000 12%, transparent 0);
+}
+/*js事件*/
+/*棋盘*/
+.blackpointer{
+	cursor:crosshair;
+}
+.whitepointer{
+	cursor:cell;
+}
+/*棋子*/
+.blackpiece{
+	background : radial-gradient(#333 5%,#111 55%,#000 60%, transparent 65%);
+}
+.whitepiece{
+	background : radial-gradient(#fff 5%,#ddd 55%, #ccc 60%,transparent 65%);
+}
+.btopline{
+	background : linear-gradient(90deg,transparent 24.5px,#f00 0, #f00 25.5px,transparent 25.5px),radial-gradient(#333 5%,#111 55%,#000 60%, transparent 65%);
+
+}
+.bleftline{
+	background : linear-gradient(transparent 24.5px,#f00 0, #f00 25.5px,transparent 25.5px),radial-gradient(#333 5%,#111 55%,#000 60%, transparent 65%);
+
+}
+.btopleftline{
+	background : linear-gradient(45deg,transparent 35px,#f00 0, #f00 36px,transparent 36px),radial-gradient(#333 5%,#111 55%,#000 60%, transparent 65%);
+
+}
+.btoprightline{
+	background : linear-gradient(-45deg,transparent 35px,#f00 0, #f00 36px,transparent 36px),radial-gradient(#333 5%,#111 55%,#000 60%, transparent 65%);
+
+}
+.wtopline{
+	background : linear-gradient(90deg,transparent 24.5px,#f00 0, #f00 25.5px,transparent 25.5px),radial-gradient(#fff 5%,#ddd 55%, #ccc 60%,transparent 65%);
+
+}
+.wleftline{
+	background : linear-gradient(transparent 24.5px,#f00 0, #f00 25.5px,transparent 25.5px),radial-gradient(#fff 5%,#ddd 55%, #ccc 60%,transparent 65%);
+	
+}
+.wtopleftline{
+	background : linear-gradient(45deg,transparent 35px,#f00 0, #f00 36px,transparent 36px),radial-gradient(#fff 5%,#ddd 55%, #ccc 60%,transparent 65%);
+
+}
+.wtoprightline{
+	background : linear-gradient(-45deg,transparent 35px,#f00 0, #f00 36px,transparent 36px),radial-gradient(#fff 5%,#ddd 55%, #ccc 60%,transparent 65%);
+
 }
