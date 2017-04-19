@@ -4,38 +4,63 @@ body{
     -ms-user-select:none;
     user-select:none;
     cursor: default;
+    margin: 0;
 }
-/*首行信息*/
-p{
+p,h1{
 	margin:0;
 }
-#control{
-	width:750px;
+#gobang{
 	margin: 0 auto;
-	text-align: center;
-	font-size: 20px;
+	width: auto;
+	min-width: 750px;
+
 }
-#control:after{
-	content: "";
-	display:table;
-	clear: both;
-} 
-#player{
-	color: #00f;
-	font-size: 30px;
-}
-#tip{
+h1{
 	font-size: 40px;
 }
-#start{
-	font-size: 20px;
+/*信息*/
+#control,#information,#report{
+	background-color: #ddd;
+	float: left;
+	width:250px;
+	height:250px;
+	text-align: center;
 }
-#start,#retract{
-	cursor: pointer;
-	border:groove 3px;
-}
+	/*上*/
+	#name{
+		font-family: "隶书","楷体","楷体_GB2312";
+		font-size: 50px;
+	}
+	#player{
+		margin: 0 auto;
+		background-color: #dc3;
+		width:50%;
+		height:50%;
+		color: #00f;
+		font-size: 0px;
+		background-repeat: no-repeat;
+		-webkit-background-size: 50px 50px;
+		background-size: 50px 50px;
+		background-position: center center;
+	}
+	/*中*/
+	#tip{
+		font-size: 40px;
+	}
+	#start,#retract{
+		float: left;
+		width: calc(50% - 6px);
+		cursor: pointer;
+		border: groove 3px;
+		font-size: 30px;
+	}
+	/*下*/
+	#report{
+		font-size: 40px;
+	}
+/*棋盘*/
 #board{
-	margin: 0 auto;
+	float: left;
 	background-color: #dc3;
 	background-image: repeating-linear-gradient(#000 0px, #000 2px, transparent 2px, transparent 50px), 
 	repeating-linear-gradient(90deg,#000 0px, #000 2px, transparent 2px, transparent 50px);
@@ -50,7 +75,6 @@ p{
 	height: 50px;
 	float: left;
 }
-
 .yuan{
 	background: radial-gradient(#000 15%, transparent 0);
 }
@@ -58,49 +82,66 @@ p{
 	background: radial-gradient(#000 12%, transparent 0);
 }
 /*js事件*/
-/*棋盘*/
-.blackpointer{
-	cursor:crosshair;
-}
-.whitepointer{
-	cursor:cell;
-}
-/*棋子*/
-.blackpiece{
-	background : radial-gradient(#333 5%,#111 55%,#000 60%, transparent 65%);
-}
-.whitepiece{
-	background : radial-gradient(#fff 5%,#ddd 55%, #ccc 60%,transparent 65%);
-}
-.btopline{
-	background : linear-gradient(90deg,transparent 24.5px,#f00 0, #f00 25.5px,transparent 25.5px),radial-gradient(#333 5%,#111 55%,#000 60%, transparent 65%);
+	/*棋盘*/
+	.blackpointer{
+		cursor:crosshair;
+	}
+	.whitepointer{
+		cursor:cell;
+	}
+	/*棋子*/
+	.blackpiece{
+		background : radial-gradient(#333 5%,#111 55%,#000 60%, transparent 65%);
+	}
+	.whitepiece{
+		background : radial-gradient(#fff 5%,#ddd 55%, #ccc 60%,transparent 65%);
+	}
+	.btopline{
+		background : linear-gradient(90deg,transparent 24.5px,#f00 0, #f00 25.5px,transparent 25.5px),radial-gradient(#333 5%,#111 55%,#000 60%, transparent 65%);
 
-}
-.bleftline{
-	background : linear-gradient(transparent 24.5px,#f00 0, #f00 25.5px,transparent 25.5px),radial-gradient(#333 5%,#111 55%,#000 60%, transparent 65%);
+	}
+	.bleftline{
+		background : linear-gradient(transparent 24.5px,#f00 0, #f00 25.5px,transparent 25.5px),radial-gradient(#333 5%,#111 55%,#000 60%, transparent 65%);
 
-}
-.btopleftline{
-	background : linear-gradient(45deg,transparent 35px,#f00 0, #f00 36px,transparent 36px),radial-gradient(#333 5%,#111 55%,#000 60%, transparent 65%);
+	}
+	.btopleftline{
+		background : linear-gradient(45deg,transparent 35px,#f00 0, #f00 36px,transparent 36px),radial-gradient(#333 5%,#111 55%,#000 60%, transparent 65%);
 
-}
-.btoprightline{
-	background : linear-gradient(-45deg,transparent 35px,#f00 0, #f00 36px,transparent 36px),radial-gradient(#333 5%,#111 55%,#000 60%, transparent 65%);
+	}
+	.btoprightline{
+		background : linear-gradient(-45deg,transparent 35px,#f00 0, #f00 36px,transparent 36px),radial-gradient(#333 5%,#111 55%,#000 60%, transparent 65%);
 
-}
-.wtopline{
-	background : linear-gradient(90deg,transparent 24.5px,#f00 0, #f00 25.5px,transparent 25.5px),radial-gradient(#fff 5%,#ddd 55%, #ccc 60%,transparent 65%);
+	}
+	.wtopline{
+		background : linear-gradient(90deg,transparent 24.5px,#f00 0, #f00 25.5px,transparent 25.5px),radial-gradient(#fff 5%,#ddd 55%, #ccc 60%,transparent 65%);
 
-}
-.wleftline{
-	background : linear-gradient(transparent 24.5px,#f00 0, #f00 25.5px,transparent 25.5px),radial-gradient(#fff 5%,#ddd 55%, #ccc 60%,transparent 65%);
-	
-}
-.wtopleftline{
-	background : linear-gradient(45deg,transparent 35px,#f00 0, #f00 36px,transparent 36px),radial-gradient(#fff 5%,#ddd 55%, #ccc 60%,transparent 65%);
+	}
+	.wleftline{
+		background : linear-gradient(transparent 24.5px,#f00 0, #f00 25.5px,transparent 25.5px),radial-gradient(#fff 5%,#ddd 55%, #ccc 60%,transparent 65%);
+		
+	}
+	.wtopleftline{
+		background : linear-gradient(45deg,transparent 35px,#f00 0, #f00 36px,transparent 36px),radial-gradient(#fff 5%,#ddd 55%, #ccc 60%,transparent 65%);
 
-}
-.wtoprightline{
-	background : linear-gradient(-45deg,transparent 35px,#f00 0, #f00 36px,transparent 36px),radial-gradient(#fff 5%,#ddd 55%, #ccc 60%,transparent 65%);
+	}
+	.wtoprightline{
+		background : linear-gradient(-45deg,transparent 35px,#f00 0, #f00 36px,transparent 36px),radial-gradient(#fff 5%,#ddd 55%, #ccc 60%,transparent 65%);
 
-}
+	}
+	.lastpiece{
+		outline: #f00 dashed 6px;
+		outline-offset: -3px;
+	}
+	/*信息*/
+	/*上*/
+	#gobang .blackplayer{
+		background-image : radial-gradient(#333 5%,#111 55%,#000 60%, transparent 65%);
+	}
+	#gobang .whiteplayer{
+		background-image : radial-gradient(#fff 5%,#ddd 55%, #ccc 60%,transparent 65%);
+	}
+	/*中*/
+	#gobang .cantclick{
+		color: #fff;
+		cursor: default;
+	}
