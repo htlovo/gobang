@@ -63,7 +63,9 @@ h1{
 	float: left;
 	background-color: #dc3;
 	background-image: repeating-linear-gradient(#000 0px, #000 2px, transparent 2px, transparent 50px), 
-	repeating-linear-gradient(90deg,#000 0px, #000 2px, transparent 2px, transparent 50px);
+	repeating-linear-gradient(180deg,#000 0px, #000 2px, transparent 2px, transparent 50px),
+	repeating-linear-gradient(90deg,#000 0px, #000 2px, transparent 2px, transparent 50px),
+	repeating-linear-gradient(-90deg,#000 0px, #000 2px, transparent 2px, transparent 50px);
 	background-size: 702px 702px,702px 702px;
 	background-repeat: no-repeat;
 	background-position: left 24px top 24px;
