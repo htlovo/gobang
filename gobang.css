@@ -136,12 +136,6 @@ h1{
 	}
 	/*信息*/
 	/*上*/
-	#gobang .blackplayer{
-		background-image : radial-gradient(#333 5%,#111 55%,#000 60%, transparent 65%);
-	}
-	#gobang .whiteplayer{
-		background-image : radial-gradient(#fff 5%,#ddd 55%, #ccc 60%,transparent 65%);
-	}
 	/*中*/
 	#gobang .cantclick{
 		color: #fff;

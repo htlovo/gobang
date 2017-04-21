@@ -40,7 +40,7 @@
 		//增加棋子点击事件
 		EventUtil.addHandler(board,"mousedown",go);
 		//重置提示信息
-		player.className="blackplayer";
+		player.className="blackpiece";
 		tipTxt.nodeValue="对弈开始";
 		//重置先手，战况
 		piece=0;
@@ -79,7 +79,7 @@
 			}
 			if (record[i-2]) {
 				record[i-2].sq.className=record[i-2].sq.className.replace("lastpiece","");
-			} 			
+			}
 			addClass(target,"lastpiece");
 			// if (i%2===0) {
 			// 	rep.innerText="白"+record[i-1].row+" "+record[i-1].col;
@@ -93,12 +93,12 @@
 			if (piece) {
 				addClass(target,"whitepiece");
 				piece=0;
-				player.className="blackplayer";
+				player.className="blackpiece";
 				board.className=" blackpointer";
 			} else {
 				addClass(target,"blackpiece");
 				piece=1;
-				player.className="whiteplayer"
+				player.className="whitepiece"
 				board.className=" whitepointer"
 			}
 			//战况转为字符串
@@ -218,10 +218,10 @@
 			}
 			if (piece) {
 				piece=0;
-				player.className="blackplayer"
+				player.className="blackpiece"
 			} else {
 				piece=1;
-				player.className="whiteplayer"
+				player.className="whitepiece"
 			}
 			// if (i%2===0) {
 			// 	console.log("-白"+record[i-1].row+" "+record[i-1].col)
