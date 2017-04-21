@@ -66,9 +66,9 @@ h1{
 	repeating-linear-gradient(180deg,#000 0px, #000 2px, transparent 2px, transparent 50px),
 	repeating-linear-gradient(90deg,#000 0px, #000 2px, transparent 2px, transparent 50px),
 	repeating-linear-gradient(-90deg,#000 0px, #000 2px, transparent 2px, transparent 50px);
-	background-size: 702px 202px,702px 702px,702px 702px,702px 702px;
+	background-size: 702px 302px,702px 352px,302px 702px,352px 702px;
 	background-repeat: no-repeat;
-	background-position: left 24px top 24px,left 24px top 24px,left 24px top 24px,left 24px top 24px;
+	background-position: left 24px top 24px,left 24px bottom 24px,left 24px top 24px,right 24px top 24px;
 	width:750px;
 	height:750px;
 }

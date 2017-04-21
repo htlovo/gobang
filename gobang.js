@@ -6,6 +6,7 @@
 	var ret=document.getElementById('retract');
 	// var rep=document.getElementById('report').getElementsByTagName('p')[0];
 	var i;
+	var step;
 	var record;
 	//黑先
 	var piece;
@@ -48,7 +49,7 @@
 		situation[i]= 2;
 		}
 		//记录步数
-		i=0;
+		step=0;
 		record=[];
 	}
 	//落子
@@ -57,7 +58,7 @@
 		var target = EventUtil.getTarget(event);
 		//判断点击处是否无子
 		if (target.className.search(/whitepiece|blackpiece/)===-1) {
-			if (i==0) {
+			if (step===0) {
 				tipTxt.nodeValue="对弈中";
 				EventUtil.addHandler(start,"click",startGame);
 				start.className=" ";
@@ -70,23 +71,23 @@
 			//
 			var winpiece;
 			//记录历史
-			i=i+1;
-			record[i-1]={
+			step=step+1;
+			record[step-1]={
 				idNum:idNum,
 				sq:target,
 				row:Math.ceil((idNum+1)/16),
 				col:((idNum+1)%16)
 			}
-			if (record[i-2]) {
-				record[i-2].sq.className=record[i-2].sq.className.replace("lastpiece","");
+			if (record[step-2]) {
+				record[step-2].sq.className=record[step-2].sq.className.replace("lastpiece","");
 			}
 			addClass(target,"lastpiece");
-			// if (i%2===0) {
-			// 	rep.innerText="白"+record[i-1].row+" "+record[i-1].col;
-			// 	console.log("白"+record[i-1].row+" "+record[i-1].col)
+			// if (step%2===0) {
+			// 	rep.innerText="白"+record[step-1].row+" "+record[step-1].col;
+			// 	console.log("白"+record[step-1].row+" "+record[step-1].col)
 			// } else {
-			// 	rep.innerText="黑"+record[i-1].row+" "+record[i-1].col;
-			// 	console.log("黑"+record[i-1].row+" "+record[i-1].col)
+			// 	rep.innerText="黑"+record[step-1].row+" "+record[step-1].col;
+			// 	console.log("黑"+record[step-1].row+" "+record[step-1].col)
 			// }
 			//改变战况
 			situation[idNum] = piece;
@@ -204,17 +205,17 @@
 	}
 	//悔棋
 	function retract() {
-		if (i>=1) {
-			switch(record[i-1].idNum){
+		if (step>=1) {
+			switch(record[step-1].idNum){
 				case 51:
 				case 59:
 				case 179:
 				case 187:
-					record[i-1].sq.className=" star";break;
+					record[step-1].sq.className=" star";break;
 				case 119:
-					record[i-1].sq.className=" yuan";break;
+					record[step-1].sq.className=" yuan";break;
 				default:
-					record[i-1].sq.className=" ";
+					record[step-1].sq.className=" ";
 			}
 			if (piece) {
 				piece=0;
@@ -223,19 +224,19 @@
 				piece=1;
 				player.className="whitepiece"
 			}
-			// if (i%2===0) {
-			// 	console.log("-白"+record[i-1].row+" "+record[i-1].col)
+			// if (step%2===0) {
+			// 	console.log("-白"+record[step-1].row+" "+record[step-1].col)
 			// } else {
-			// 	console.log("-黑"+record[i-1].row+" "+record[i-1].col)
+			// 	console.log("-黑"+record[step-1].row+" "+record[step-1].col)
 			// }
-			if (i===1) {
+			if (step===1) {
 				EventUtil.removeHandler(ret,"click",retract);
 				addClass(ret,"cantclick");
 			}
-			situation[record[i-1].idNum] = 2;
-			i=i-1;
-			if (record[i-1]) {
-				addClass(record[i-1].sq,"lastpiece");
+			situation[record[step-1].idNum] = 2;
+			step=step-1;
+			if (record[step-1]) {
+				addClass(record[step-1].sq,"lastpiece");
 			} 
 		}
 	}
