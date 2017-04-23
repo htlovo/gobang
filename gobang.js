@@ -39,7 +39,7 @@
 		}
 		board.className=" blackpointer";
 		//增加棋子点击事件
-		EventUtil.addHandler(board,"mousedown",go);
+		EventUtil.addHandler(board,"click",go);
 		//重置提示信息
 		player.className="blackpiece";
 		tipTxt.nodeValue="对弈开始";
@@ -108,7 +108,7 @@
 			if (win.test(situation)) {
 				board.className=" ";
 				player.className=" ";
-				EventUtil.removeHandler(board,"mousedown",go);
+				EventUtil.removeHandler(board,"click",go);
 				EventUtil.removeHandler(ret,"click",retract);
 				addClass(ret,"cantclick");
 				result=win.exec(situation);
