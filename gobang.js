@@ -57,7 +57,7 @@
 		event = EventUtil.getEvent(event);
 		var target = EventUtil.getTarget(event);
 		//判断点击处是否无子
-		if (target.className.search(/whitepiece|blackpiece/)===-1) {
+		if (target.id!=="board"&&target.className.search(/whitepiece|blackpiece/)===-1) {
 			if (step===0) {
 				tipTxt.nodeValue="对弈中";
 				EventUtil.addHandler(start,"click",startGame);
