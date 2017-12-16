@@ -1,8 +1,6 @@
 	var board = document.getElementById('board');
 	var player= document.getElementById('player');
 	var start= document.getElementById('start');
-	var startTxt=start.firstChild;
-	var tipTxt=document.getElementById('tip').firstChild;
 	var ret=document.getElementById('retract');
 	// var rep=document.getElementById('report').getElementsByTagName('p')[0];
 	var i;
@@ -42,7 +40,7 @@
 		EventUtil.addHandler(board,"click",go);
 		//重置提示信息
 		player.className="blackpiece";
-		tipTxt.nodeValue="对弈开始";
+		tip.innerText="对弈开始";
 		//重置先手，战况
 		piece=0;
 		for (i = 0; i < 240; i++) {
@@ -59,7 +57,7 @@
 		//判断点击处是否无子
 		if (target.id!=="board"&&target.className.search(/whitepiece|blackpiece/)===-1) {
 			if (step===0) {
-				tipTxt.nodeValue="对弈中";
+				tip.innerText="对弈中";
 				EventUtil.addHandler(start,"click",startGame);
 				start.className=" ";
 				EventUtil.addHandler(ret,"click",retract);
@@ -113,7 +111,7 @@
 				addClass(ret,"cantclick");
 				result=win.exec(situation);
 				if (+result[0][0]) {
-					tipTxt.nodeValue="白胜";
+					tip.innerText="白胜";
 					//划线,合并部分case
 					switch(result[0].length){
 						case 5: 
@@ -155,7 +153,7 @@
 						default: alert("!!!!!");
 					}
 				} else {
-					tipTxt.nodeValue="黑胜";
+					tip.innerText="黑胜";
 					//划线
 					switch(result[0].length){
 						case 5: 
