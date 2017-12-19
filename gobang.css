@@ -11,7 +11,7 @@ p,h1{
 	margin:0;
 }
 #gobang{
-	margin: 0 auto;
+	margin:10px auto;
 	width: 1000px;
 }
 @media (max-width: 1000px) { 
@@ -36,7 +36,7 @@ h1{
 		font-size: 50px;
 	}
 	#player{
-		margin: 0 auto;
+		margin: 20px auto;
 		background-color: #dc3;
 		width:50%;
 		height:50%;
